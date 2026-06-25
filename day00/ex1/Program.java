@@ -23,15 +23,21 @@ public class Program {
             
             count++;
 
-            if (i * i > num)  break;
+            if (i * i > num)
+            {
+                break;
+            }
 
             if (num % i == 0)
-                isPrime = false;  break;
+            {
+                isPrime = false;
+                break;
+            }
 
             i++;
         }
 
         System.out.println(isPrime + " " + count);
-
+        scanner.close();
     }
 }
