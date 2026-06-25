@@ -23,24 +23,21 @@ public class Program {
         int count = 0;
         long i = 2;
 
-        while (true) {
-            
+       while(true)
+       {
             count++;
-
-            if (i * i > num)
+            if(i * i > num)
             {
                 break;
             }
-
-            if (num % i == 0)
+            if(num % i == 0)
             {
                 isPrime = false;
                 break;
             }
-
+            
             i++;
-        }
-
+       }
         System.out.println(isPrime + " " + count);
         scanner.close();
     }
