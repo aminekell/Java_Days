@@ -6,11 +6,15 @@ public class Program {
         System.out.print("-> ");
 
         if (!scanner.hasNextInt())
-            System.out.println("IllegalArgument"); System.exit(-1);
+        {
+            System.out.println("IllegalArgument"); 
+            System.exit(-1);
+        }
             
         int num = scanner.nextInt();
 
-        if (num <= 1) {
+        if (num <= 1) 
+        {
             System.out.println("IllegalArgument");
             System.exit(-1);
         }
