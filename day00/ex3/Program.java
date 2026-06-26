@@ -54,7 +54,7 @@ class Program {
                                             System.exit(-1);
                                         }
                                         int save = scanner.nextInt();
-                                        if (save == 0)
+                                        if (save <  1  || save > 9)
                                                 {
                                                     System.err.println("IllegalArgument");
                                                     System.exit(-1);
