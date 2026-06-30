@@ -73,7 +73,7 @@ public class Program {
             for (int i = 0; i < (new_s % 10); i++) {
                 System.out.print("=");
             }
-            System.out.println(">");
+           System.out.println(">");
             new_s /= 10;
             weeks++;
         }
