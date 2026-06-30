@@ -61,9 +61,7 @@ public class Program {
             System.out.println();
         }
         for (int col = 0; col < 10; col++) {
-            if (top_repet[col] > 0) {
-                System.out.print(top_char_rep[col] + "   ");
-            }
+            System.out.print(top_char_rep[col] + "   ");
         }
         System.out.println();
         scanner.close();
