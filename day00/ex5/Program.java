@@ -1,6 +1,40 @@
 import java.util.Scanner;
 
 public class Program {
+    public static int[] getDaysInSeptember2020(String targetDay) {
+        int targetDayValue = 0;
+        if (targetDay.equals("MO"))
+            targetDayValue = 1;
+        else if (targetDay.equals("TU"))
+            targetDayValue = 2;
+        else if (targetDay.equals("WE"))
+            targetDayValue = 3;
+        else if (targetDay.equals("TH"))
+            targetDayValue = 4;
+        else if (targetDay.equals("FR"))
+            targetDayValue = 5;
+        else if (targetDay.equals("SA"))
+            targetDayValue = 6;
+        else if (targetDay.equals("SU"))
+            targetDayValue = 7;
+        else
+            return new int[0];
+        int septFirstDayValue = 2;
+        int firstOccurrence = 1 + (targetDayValue - septFirstDayValue + 7) % 7;
+        int count = 0;
+        for (int day = firstOccurrence; day <= 30; day += 7) {
+            count++;
+        }
+        int[] resultDays = new int[count];
+        int index = 0;
+        for (int day = firstOccurrence; day <= 30; day += 7) {
+            resultDays[index] = day;
+            index++;
+        }
+
+        return resultDays;
+    }
+
     static public void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -29,9 +63,9 @@ public class Program {
 
         int[] store_int = new int[10];
         String[] store_string = new String[10];
-        
-        String[] days = { "" ,"MO", "TU", "WE", "TH", "FR", "SA", "SU" };
-        int stage_2= 0;
+
+        String[] days = { "", "MO", "TU", "WE", "TH", "FR", "SA", "SU" };
+        int stage_2 = 0;
         while (scanner.hasNext()) {
 
             if (stage_2 == 10)
@@ -124,84 +158,12 @@ public class Program {
             stage_3++;
         }
         System.out.println("--------------------------------------");
-        for(int i = 0; i < stage_2 ; i++)
-            {
-                System.out.println(store_string[i]);
-            }
-        for(int i = 1; i < 30 ; i++)
-                {
-                    if(1 % i == 0)
-                        System.out.println(i);
-                }
-            
+        int[] all = getDaysInSeptember2020(store_string[0]);
+        // int[][] all1;
+        for (int i = 0; i < all.length; i++) {
+            System.out.println(all[i]);
+        }
+
         scanner.close();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
-
-
-public static int[] getDaysInSeptember2020(String targetDay) {
-    // 1. Map the 2-letter codes to numeric day values
-    // Monday = 1, Tuesday = 2, ..., Sunday = 7
-    int targetDayValue = 0;
-    if (targetDay.equals("MO")) targetDayValue = 1;
-    else if (targetDay.equals("TU")) targetDayValue = 2;
-    else if (targetDay.equals("WE")) targetDayValue = 3;
-    else if (targetDay.equals("TH")) targetDayValue = 4;
-    else if (targetDay.equals("FR")) targetDayValue = 5;
-    else if (targetDay.equals("SA")) targetDayValue = 6;
-    else if (targetDay.equals("SU")) targetDayValue = 7;
-    else return new int[0]; // Return empty array if input is invalid
-
-    // 2. September 1st, 2020 was a Tuesday (Day value = 2)
-    int septFirstDayValue = 2; 
-
-    // 3. Find the first matching day of the month
-    int firstOccurrence = 1 + (targetDayValue - septFirstDayValue + 7) % 7;
-
-    // 4. Count how many times this day appears in September (30 days total)
-    int count = 0;
-    for (int day = firstOccurrence; day <= 30; day += 7) {
-        count++;
-    }
-
-    // 5. Populate the exact dates into the final array
-    int[] resultDays = new int[count];
-    int index = 0;
-    for (int day = firstOccurrence; day <= 30; day += 7) {
-        resultDays[index] = day;
-        index++;
-    }
-
-    return resultDays;
-}
-}
-
-*/
