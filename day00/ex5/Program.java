@@ -29,7 +29,8 @@ public class Program {
 
         int[] store_int = new int[10];
         String[] store_string = new String[10];
-
+        
+        String[] days = { "" ,"MO", "TU", "WE", "TH", "FR", "SA", "SU" };
         int stage_2= 0;
         while (scanner.hasNext()) {
 
@@ -46,7 +47,6 @@ public class Program {
             String Check = scanner.next();
             if (Check.equals("."))
                 break;
-            String[] days = { "MO", "TU", "WE", "TH", "FR", "SA", "SU" };
             boolean found = false;
             for (int p = 0; p < days.length; p++) {
                 if (Check.equals(days[p])) {
@@ -82,11 +82,15 @@ public class Program {
                 break;
 
             boolean o = false;
-            for (int k = 0; k < store_student.length; k++) {
+            // System.out.println("check the problem --------------------->");
+            // System.out.println(store_student.length);
+
+            for (int k = 0; k < stage_1; k++) {
                 if (store_student[k].equals(Check)) {
                     o = true;
                 }
             }
+            // System.out.println("second place to check the problem");
             if (!o) {
                 System.err.println("student not found !!!");
                 System.exit(-1);
@@ -96,7 +100,7 @@ public class Program {
             if (scanner.hasNextInt()) {
                 int h = scanner.nextInt();
                 if (h < 1 || h > 6) {
-                    System.err.println("fix the date please");
+                    System.err.println("fix the date please between 1 and 6");
                     System.exit(-1);
                 }
                 time[stage_3] = h;
@@ -105,7 +109,7 @@ public class Program {
             if (scanner.hasNextInt()) {
                 int b = scanner.nextInt();
                 if (b < 1 || b > 30) {
-                    System.err.println("fix the date please");
+                    System.err.println("need to be between 1 and 30");
                     System.exit(-1);
                 }
                 date[stage_3] = b;
@@ -119,7 +123,85 @@ public class Program {
             }
             stage_3++;
         }
-
+        System.out.println("--------------------------------------");
+        for(int i = 0; i < stage_2 ; i++)
+            {
+                System.out.println(store_string[i]);
+            }
+        for(int i = 1; i < 30 ; i++)
+                {
+                    if(1 % i == 0)
+                        System.out.println(i);
+                }
+            
         scanner.close();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
+public static int[] getDaysInSeptember2020(String targetDay) {
+    // 1. Map the 2-letter codes to numeric day values
+    // Monday = 1, Tuesday = 2, ..., Sunday = 7
+    int targetDayValue = 0;
+    if (targetDay.equals("MO")) targetDayValue = 1;
+    else if (targetDay.equals("TU")) targetDayValue = 2;
+    else if (targetDay.equals("WE")) targetDayValue = 3;
+    else if (targetDay.equals("TH")) targetDayValue = 4;
+    else if (targetDay.equals("FR")) targetDayValue = 5;
+    else if (targetDay.equals("SA")) targetDayValue = 6;
+    else if (targetDay.equals("SU")) targetDayValue = 7;
+    else return new int[0]; // Return empty array if input is invalid
+
+    // 2. September 1st, 2020 was a Tuesday (Day value = 2)
+    int septFirstDayValue = 2; 
+
+    // 3. Find the first matching day of the month
+    int firstOccurrence = 1 + (targetDayValue - septFirstDayValue + 7) % 7;
+
+    // 4. Count how many times this day appears in September (30 days total)
+    int count = 0;
+    for (int day = firstOccurrence; day <= 30; day += 7) {
+        count++;
+    }
+
+    // 5. Populate the exact dates into the final array
+    int[] resultDays = new int[count];
+    int index = 0;
+    for (int day = firstOccurrence; day <= 30; day += 7) {
+        resultDays[index] = day;
+        index++;
+    }
+
+    return resultDays;
+}
+}
+
+*/
