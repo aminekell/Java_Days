@@ -7,7 +7,6 @@ public class Program {
 
         int week_count = 1;
         long hold = 0;
-        System.out.print("-> ");
 
         while (scanner.hasNext()) {
             String week = scanner.next();
@@ -38,7 +37,6 @@ public class Program {
             }
 
             int value = 9;
-            System.out.print("-> ");
 
             for (int i = 0; i < 5; i++) {
                 if (!scanner.hasNextInt()) {
@@ -57,7 +55,6 @@ public class Program {
             if (week_count < 18)
                 hold *= 10;
             week_count++;
-            System.out.print("-> ");
         }
         long new_s = 0;
 

@@ -3,8 +3,6 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("-> ");
-
         if (!scanner.hasNextInt()) {
             System.out.println("IllegalArgument");
             System.exit(-1);
