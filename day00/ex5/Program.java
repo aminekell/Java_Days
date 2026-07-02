@@ -2,37 +2,21 @@ import java.util.Scanner;
 
 public class Program {
     public static int[] getDaysInSeptember2020(String targetDay) {
-        int targetDayValue = 0;
+        if (targetDay.equals("TU"))
+            return new int[] { 1, 8, 15, 22, 29 };
+        if (targetDay.equals("WE"))
+            return new int[] { 2, 9, 16, 23, 30 };
+        if (targetDay.equals("TH"))
+            return new int[] { 3, 10, 17, 24 };
+        if (targetDay.equals("FR"))
+            return new int[] { 4, 11, 18, 25 };
+        if (targetDay.equals("SA"))
+            return new int[] { 5, 12, 19, 26 };
+        if (targetDay.equals("SU"))
+            return new int[] { 6, 13, 20, 27 };
         if (targetDay.equals("MO"))
-            targetDayValue = 1;
-        else if (targetDay.equals("TU"))
-            targetDayValue = 2;
-        else if (targetDay.equals("WE"))
-            targetDayValue = 3;
-        else if (targetDay.equals("TH"))
-            targetDayValue = 4;
-        else if (targetDay.equals("FR"))
-            targetDayValue = 5;
-        else if (targetDay.equals("SA"))
-            targetDayValue = 6;
-        else if (targetDay.equals("SU"))
-            targetDayValue = 7;
-        else
-            return new int[0];
-        int septFirstDayValue = 2;
-        int firstOccurrence = 1 + (targetDayValue - septFirstDayValue + 7) % 7;
-        int count = 0;
-        for (int day = firstOccurrence; day <= 30; day += 7) {
-            count++;
-        }
-        int[] resultDays = new int[count];
-        int index = 0;
-        for (int day = firstOccurrence; day <= 30; day += 7) {
-            resultDays[index] = day;
-            index++;
-        }
-
-        return resultDays;
+            return new int[] { 7, 14, 21, 28 };
+        return new int[0];
     }
 
     static public void main(String[] args) {
@@ -158,10 +142,47 @@ public class Program {
             stage_3++;
         }
         System.out.println("--------------------------------------");
-        int[] all = getDaysInSeptember2020(store_string[0]);
-        // int[][] all1;
-        for (int i = 0; i < all.length; i++) {
-            System.out.println(all[i]);
+        int[] result = new int[100];
+        int[] hour = new int[100];
+        String[] Weekday = new String[100];
+        int index = 0;
+
+        for (int i = 0; i < store_string.length; i++) {
+            if (store_string[i] == null) {
+                break;
+            }
+
+            int[] daya = getDaysInSeptember2020(store_string[i]);
+
+            for (int j = 0; j < daya.length; j++) {
+                result[index] = daya[j];
+                hour[index] = store_int[i];
+                Weekday[index] = store_string[i];
+                index++;
+            }
+        }
+        int[] sort = new int[index];
+        int[] sort_hour = new int[index];
+        String[] sort_Weekday = new String[index];
+
+        for (int j = 0; j < index; j++) {
+            int min = 100;
+            int pos = -1;
+
+            for (int i = 0; i < index; i++) {
+                if (result[i] < min) {
+                    min = result[i];
+                    pos = i;
+                }
+            }
+
+            sort[j] = min;
+            sort_hour[j] = hour[pos];
+            sort_Weekday[j] = Weekday[pos];
+            result[pos] = 100;
+        }
+        for (int i = 0; i < index; i++) {
+            System.out.println(sort[i] + " " + sort_hour[i] + " " + sort_Weekday[i]);
         }
 
         scanner.close();
