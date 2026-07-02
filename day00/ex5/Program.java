@@ -100,15 +100,11 @@ public class Program {
                 break;
 
             boolean o = false;
-            // System.out.println("check the problem --------------------->");
-            // System.out.println(store_student.length);
-
             for (int k = 0; k < stage_1; k++) {
                 if (store_student[k].equals(Check)) {
                     o = true;
                 }
             }
-            // System.out.println("second place to check the problem");
             if (!o) {
                 System.err.println("student not found !!!");
                 System.exit(-1);
@@ -141,7 +137,6 @@ public class Program {
             }
             stage_3++;
         }
-        System.out.println("--------------------------------------");
         int[] result = new int[100];
         int[] hour = new int[100];
         String[] Weekday = new String[100];
@@ -152,10 +147,10 @@ public class Program {
                 break;
             }
 
-            int[] daya = getDaysInSeptember2020(store_string[i]);
+            int[] numbers = getDaysInSeptember2020(store_string[i]);
 
-            for (int j = 0; j < daya.length; j++) {
-                result[index] = daya[j];
+            for (int j = 0; j < numbers.length; j++) {
+                result[index] = numbers[j];
                 hour[index] = store_int[i];
                 Weekday[index] = store_string[i];
                 index++;
@@ -181,8 +176,34 @@ public class Program {
             sort_Weekday[j] = Weekday[pos];
             result[pos] = 100;
         }
-        for (int i = 0; i < index; i++) {
-            System.out.println(sort[i] + " " + sort_hour[i] + " " + sort_Weekday[i]);
+
+        System.out.println();
+        System.out.print("  ");
+        for (int i = 0; i < sort.length; i++) {
+            System.out.print(sort_hour[i] + ":00" + " " + sort_Weekday[i] + " " + sort[i] + "| ");
+        }
+        System.out.println();
+        for (int i = 0; i < stage_1; i++) {
+            System.out.print(store_student[i] + "  ");
+            for (int j = 0; j < sort.length; j++) {
+                boolean printed = false;
+                for (int k = 0; k < stage_3; k++) {
+                    if (student_ineed[k].equals(store_student[i]) && time[k] == sort_hour[j] && date[k] == sort[j]) {
+                        printed = true;
+                        if (status[k].equals("HERE")) {
+                            System.out.print("      1|");
+
+                        } else {
+                            System.out.print("    -1|");
+                        }
+                        printed = true;
+                    }
+                }
+                if (printed == false) {
+                    System.out.print("      |");
+                }
+            }
+            System.out.println();
         }
 
         scanner.close();
