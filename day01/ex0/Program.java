@@ -4,7 +4,7 @@ public class Program {
         User amine = new User(1, "akella", 10000);
         User kella = new User(2, "kella", 22000);
 
-        Transcation one = new Transcation();
+        // Transcation one = new Transcation(amine, kella, 200, "");
     }
 
 }
