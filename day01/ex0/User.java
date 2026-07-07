@@ -8,9 +8,9 @@ public class User {
             System.err.print("Balnace most be possitive !!");
             System.exit(-1);
         }
-        id = _id;
-        Name = _Name;
-        Balance = _Balance;
+        Setid(1);
+        SetName(_Name);
+        SetBalance(_Balance);
     }
 
 
@@ -59,7 +59,7 @@ public class User {
     }
 
 
-    
+
 }
 
 // The difference between int and Integer in Java is that int is a primitive
