@@ -13,9 +13,22 @@ public class User {
         Balance = _Balance;
     }
 
+
+
+
+    //getter and setter for the id
     public Integer Getid() {
         return id;
     }
+
+    public void Setid(Integer Id) {
+        id = Id;
+    }
+
+
+
+
+    // getter and setter for the name
 
     public String GetName() {
         return Name;
@@ -24,6 +37,14 @@ public class User {
     public void SetName(String _Name) {
         Name = _Name;
     }
+
+
+
+
+
+
+
+    // getter and setter for the balance
 
     public double GetBalance() {
         return Balance;
@@ -36,6 +57,9 @@ public class User {
         }
         Balance = _Balance;
     }
+
+
+    
 }
 
 // The difference between int and Integer in Java is that int is a primitive
