@@ -1,8 +1,8 @@
 public class Program {
     public static void main(String[] args) {
 
-        User amine = new User(1, "Amine", 10000);
-        User kella = new User(2, "Kella", 22000);
+        User amine = new User(1, "Amine", -1);
+        User kella = new User(2, "Kella", -1);
 
         Transcation t1 = new Transcation(amine, kella, Transcation.Category.debits, -500);
         Transcation t2 = new Transcation(kella, amine, Transcation.Category.credits, 500);
