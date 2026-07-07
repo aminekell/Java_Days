@@ -4,7 +4,7 @@ public class User {
     private double Balance;
 
     public User(int _id, String _Name, double _Balance) {
-        if (Balance < 0) {
+        if (_Balance < 0) {
             System.err.print("Balnace most be possitive !!");
             System.exit(-1);
         }
