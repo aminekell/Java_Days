@@ -8,7 +8,7 @@ public class User {
             System.err.print("Balnace most be possitive !!");
             System.exit(-1);
         }
-        id = UserIdsGenerator.getInstance().generateId();
+        // id = UserIdsGenerator.getInstance().generateId();
         SetName(_Name);
         SetBalance(_Balance);
     }
@@ -16,10 +16,6 @@ public class User {
     // getter and setter for the id
     public Integer Getid() {
         return id;
-    }
-
-    public void Setid(Integer Id) {
-        id = Id;
     }
 
     // getter and setter for the name

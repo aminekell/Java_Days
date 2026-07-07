@@ -1,1 +1,4 @@
-package day01.ex1;
+public class UserIdsGenerator {
+
+    
+}
